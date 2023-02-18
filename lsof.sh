@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-find /proc/[0-9]*/fd -type l -exec ls -l {} \; > test
+find /proc/[0-9]*/fd -type l -exec ls -l {} \; > file.txt
 
 while IFS= read -r line
 do
@@ -11,5 +11,5 @@ do
   var_d=$(echo $l | awk '{print $7}')
   var_m=$(echo $l | awk '{print $6}')
   echo $U '|' $var_m '|' $var_d '|'  $var_t '|' $var_pid '|' $P   
-done < test
-rm -rf test
+done < file.txt
+rm -rf file.txt
